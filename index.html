@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銧碩科技 XIRI — 綠能科技與工業廢氣治理大氣污染防治先鋒</title>
+    <meta name="description" content="銧碩科技有限公司 (XIRI Light Energy) 專注於微波蓄熱熱處理專利設備與 VOCs 氣體防回火治理。協同山東保藍集團等合作夥伴，提供兩岸化工、塗裝、印染廠區的煙氣超低排放、脫硫脫硝與智慧自控系統工程。">
+    <meta name="keywords" content="銧碩科技, 銧碩科技有限公司, XIRI, 山東保藍集團, 保藍環保, 揮發性有機物, 蓄熱式微波, 煙氣脫白, 污染防治, 系統整合">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="銧碩科技 XIRI — 綠能科技與工業廢氣治理大氣污染防治先鋒">
+    <meta property="og:description" content="專注於微波蓄熱熱處理專利設備與 VOCs 氣體防回火治理。協同山東保藍集團等合作夥伴，提供兩岸化工、塗裝、印染廠區的煙氣超低排放、脫硫脫硝與智慧自控系統工程。">
+    <meta property="og:image" content="microwave_reactor.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-grid-theme">
+
+    <!-- Outer Dashboard Grid Frame -->
+    <div class="dashboard-wrapper">
+        
+        <!-- 1. Header Navigation Row (Main High-Level Corporate Sections) -->
+        <header class="db-header">
+            <div class="db-brand" onclick="navigateToPage('page-about', 1)">
+                <span class="brand-logo"><i class="fa-solid fa-leaf"></i></span>
+                <div class="brand-text">
+                    <span class="brand-title" id="txt-brand-title">銧碩科技</span>
+                    <span class="brand-sub">XIRI LIGHT ENERGY</span>
+                </div>
+            </div>
+            
+            <nav class="db-menu">
+                <button class="menu-link active" onclick="navigateToPage('page-about', 1)" id="nav-page-1">關於銧碩</button>
+                <button class="menu-link" onclick="navigateToPage('page-tech', 2)" id="nav-page-2">專利技術</button>
+                <button class="menu-link" onclick="navigateToPage('page-projects', 3)" id="nav-page-3">兩岸實績</button>
+                <button class="menu-link" onclick="navigateToPage('page-contact', 4)" id="nav-page-4">聯絡我們</button>
+            </nav>
+            
+            <div class="db-meta">
+                <span class="meta-item"><i class="fa-solid fa-phone"></i> +886-37-688000</span>
+                <span class="meta-item email-meta"><i class="fa-solid fa-envelope"></i> info@xiri-light.com</span>
+                <button class="order-btn" onclick="navigateToPage('page-contact', 4)" id="txt-header-order-btn">預約諮詢</button>
+            </div>
+        </header>
+
+        <!-- 2. Main Dashboard Central Body -->
+        <main class="db-body">
+            
+            <!-- Left Utility Icon Sidebar (Actionable Tools & Modals) -->
+            <aside class="sidebar-left">
+                <button class="side-icon" onclick="toggleLeftModal('modal-spec')" title="規格檢索" id="tool-btn-spec">
+                    <i class="fa-solid fa-file-invoice"></i>
+                </button>
+                <button class="side-icon" onclick="toggleLeftModal('modal-call')" title="電話通訊" id="tool-btn-call">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </button>
+                <button class="side-icon" onclick="toggleLeftModal('modal-map')" title="廠區地圖" id="tool-btn-map">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </button>
+                <button class="side-icon" onclick="toggleLeftModal('modal-chat')" title="線上小幫手" id="tool-btn-chat">
+                    <i class="fa-solid fa-comments"></i>
+                </button>
+            </aside>
+
+            <!-- Center Display Panel (Dynamic Content + Massive 3D Picture) -->
+            <section class="db-content-area">
+                
+                <!-- Dynamic Content Slider -->
+                <div class="content-slider-wrapper">
+                    
+                    <!-- ==============================================
+                         PAGE 01: ABOUT US CHAPTERS
+                         ============================================== -->
+                    <div class="page-container active" id="page-about">
+                        
+                        <!-- Chapter 1-1: Background -->
+                        <article class="tab-panel active" id="about-panel-1">
+                            <div class="panel-meta">
+                                <span class="slide-num">01</span>
+                                <span class="slide-tag" id="ab-tag-1"><i class="fa-solid fa-seedling"></i> 永續綠能 • 專業研發</span>
+                            </div>
+                            <h1 class="panel-title" id="ab-title-1">科技綠能<br>銧耀永續生態</h1>
+                            <p class="panel-desc" id="ab-desc-1">
+                                銧碩科技創立於 2013 年，以「銧」科技之光，照亮綠色製造的前景。我們是專業環境保護工程與污染防治設備研發者，融合先進的機械設計與智慧自控系統，致力於降低碳排與工業空汙，引領綠色工業革命。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="navigateToPage('page-tech', 2)" id="ab-btn-1">探索專利技術 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">2013</span>
+                                    <span class="p-stat-lbl" id="ab-lbl-y">創立年份</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">2+</span>
+                                    <span class="p-stat-lbl" id="ab-lbl-p">研發發明專利</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Chapter 1-2: Vision -->
+                        <article class="tab-panel" id="about-panel-2">
+                            <div class="panel-meta">
+                                <span class="slide-num">02</span>
+                                <span class="slide-tag" id="ab-tag-2"><i class="fa-solid fa-eye"></i> 企業願景 • 綠色地平線</span>
+                            </div>
+                            <h1 class="panel-title" id="ab-title-2">引領工業低碳<br>共築零汙染未來</h1>
+                            <p class="panel-desc" id="ab-desc-2">
+                                我們的願景是成為亞太地區領先的綠色科技與環境治理指標廠商。我們深信工業發展與地球生態可以和諧共存，並持續透過前瞻的技術研發，協助各製造業工廠完成 ESG 轉型，守護乾淨的天空與水資源。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="navigateToPage('page-contact', 4)" id="ab-btn-2">預約現場診斷 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">100%</span>
+                                    <span class="p-stat-lbl" id="ab-lbl-e">綠色工藝指標</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">ESG</span>
+                                    <span class="p-stat-lbl" id="ab-lbl-c">永續發展承諾</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- ==============================================
+                         PAGE 02: TECHNICAL PATENTS & PRODUCTS
+                         ============================================== -->
+                    <div class="page-container" id="page-tech">
+                        
+                        <!-- Product 2-1: Microwave Pyrolysis Reactor -->
+                        <article class="tab-panel active" id="tech-panel-1">
+                            <div class="panel-meta">
+                                <span class="slide-num">01</span>
+                                <span class="slide-tag" id="te-tag-1"><i class="fa-solid fa-microchip"></i> 專利蓄熱熱裂解設備</span>
+                            </div>
+                            <h1 class="panel-title" id="te-title-1">蓄熱微波裂解塔<br>VOCs 深度淨化</h1>
+                            <p class="panel-desc" id="te-desc-1">
+                                本發明專利巧妙結合「微波極速加熱」與「蓄熱式高溫裂解」，讓揮發性有機廢氣分子在高溫蓄熱介質中均勻受熱、徹底裂解。**運行能耗相較傳統 RTO 降低高達 35%**，是高濃度 VOCs 去除的綠色黑科技。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="toggleLeftModal('modal-spec')" id="te-btn-1">查看規格說明 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">99.9%</span>
+                                    <span class="p-stat-lbl" id="te-lbl-e">VOCs 去除效率</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">-35%</span>
+                                    <span class="p-stat-lbl" id="te-lbl-s">運轉能耗節省</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product 2-2: Safe Gas Intake System -->
+                        <article class="tab-panel" id="tech-panel-2">
+                            <div class="panel-meta">
+                                <span class="slide-num">02</span>
+                                <span class="slide-tag" id="te-tag-2"><i class="fa-solid fa-shield-halved"></i> 專利進氣與防爆防回火</span>
+                            </div>
+                            <h1 class="panel-title" id="te-title-2">防回火均流閥箱<br>徹底隔絕燃爆隱憂</h1>
+                            <p class="panel-desc" id="te-desc-2">
+                                工業廢氣濃度波動劇烈，容易引起管道回火燃燒。本專利進氣輸入裝置，採用特殊的流體力學均流設計與精密單向阻火閥門，能確保氣流穩定，從源頭徹底杜絕逆流回燃危險，保障廠區運轉安全。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="navigateToPage('page-contact', 4)" id="te-btn-2">索取技術樣冊 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">SIL3</span>
+                                    <span class="p-stat-lbl" id="te-lbl-sf">最高安全等級</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">85%</span>
+                                    <span class="p-stat-lbl" id="te-lbl-m">風阻混勻度提升</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product 2-3: Smart PLC Control Panel -->
+                        <article class="tab-panel" id="tech-panel-3">
+                            <div class="panel-meta">
+                                <span class="slide-num">03</span>
+                                <span class="slide-tag" id="te-tag-3"><i class="fa-solid fa-gears"></i> 智慧控制系統整合</span>
+                            </div>
+                            <h1 class="panel-title" id="te-title-3">PLC/SCADA 控制盤<br>無人化智慧監控</h1>
+                            <p class="panel-desc" id="te-desc-3">
+                                專為環境工程打造的精密儀表盤與 PLC 自控系統，無縫整合了溫度、壓力、風量感測，可將整套廢氣設備接入中央 SCADA 中控室，支援變頻智能風控與雲端異常警報，實現無人值守智慧運維。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="navigateToPage('page-contact', 4)" id="te-btn-3">洽詢系統自控盤 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">24h</span>
+                                    <span class="p-stat-lbl" id="te-lbl-mo">動態自動監測</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">IOT</span>
+                                    <span class="p-stat-lbl" id="te-lbl-i">工業物聯網架構</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product 2-4: Industrial Explosion-Proof Lighting -->
+                        <article class="tab-panel" id="tech-panel-4">
+                            <div class="panel-meta">
+                                <span class="slide-num">04</span>
+                                <span class="slide-tag" id="te-tag-4"><i class="fa-solid fa-lightbulb"></i> 廠區節能照明系統</span>
+                            </div>
+                            <h1 class="panel-title" id="te-title-4">高天棚防爆 LED<br>智慧節電省電照明</h1>
+                            <p class="panel-desc" id="te-desc-4">
+                                針對化學、半導體與噴漆等易燃防爆高危險區域，提供國家標準認證的防爆智慧 LED 照明系統。搭配環境光感與時序自動調光，高光效、極低功耗，協助工廠減少高額經常性照明電力支出。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="navigateToPage('page-contact', 4)" id="te-btn-4">預約照度節能估算 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">EX d</span>
+                                    <span class="p-stat-lbl" id="te-lbl-ex">國家級防爆認證</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">65%</span>
+                                    <span class="p-stat-lbl" id="te-lbl-sv">最大照明省電率</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- ==============================================
+                         PAGE 03: CROSS-STRAIT PROJECTS & COOPERATIONS
+                         ============================================== -->
+                    <div class="page-container" id="page-projects">
+                        
+                        <!-- Project 3-1: Taiwan Semiconductor -->
+                        <article class="tab-panel active" id="proj-panel-1">
+                            <div class="panel-meta">
+                                <span class="slide-num">01</span>
+                                <span class="slide-tag" id="pr-tag-1"><i class="fa-solid fa-city"></i> 台灣半導體與高精密廠區</span>
+                            </div>
+                            <h1 class="panel-title" id="pr-title-1">高精密製程<br>VOCs 減排系統</h1>
+                            <p class="panel-desc" id="pr-desc-1">
+                                銧碩科技在台灣竹科、中科等高精密半導體和電子製程廠區中，成功部署了多套客製化污染防治與 PLC 自動化自控盤，為各大上市公司提供合規、低耗且高度安全的廢氣收集治理工程。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="navigateToPage('page-contact', 4)" id="pr-btn-1">諮詢半導體方案 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">100%</span>
+                                    <span class="p-stat-lbl" id="pr-lbl-a">工程合規驗收</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">Class</span>
+                                    <span class="p-stat-lbl" id="pr-lbl-d">高無塵室安全級</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 3-2: Shandong Baolan Alliance -->
+                        <article class="tab-panel" id="proj-panel-2">
+                            <div class="panel-meta">
+                                <span class="slide-num">02</span>
+                                <span class="slide-tag" id="pr-tag-2"><i class="fa-solid fa-globe"></i> 戰略合作 • 中國省市佈局</span>
+                            </div>
+                            <h1 class="panel-title" id="pr-title-2">戰合山東保藍集團<br>聯手超低排放工程</h1>
+                            <p class="panel-desc" id="pr-desc-2">
+                                我們與中國大氣環保巨擘——國家級專精特新「小巨人」**山東保藍集團（保藍環保）**達成了深度戰略合作。憑藉銧碩的精密機械研發與微波技術，配合保藍集團強大的 EPC 總承包實力，聯手在山東、江蘇等省市交付多套催化燃燒、煙氣電磁脫白與煙氣幹法脫硫脫硝項目。
+                            </p>
+                            <div class="panel-actions">
+                                <button class="panel-btn primary" onclick="toggleLeftModal('modal-map')" id="pr-btn-2">檢視兩岸聯絡地圖 <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <div class="panel-stats">
+                                <div class="p-stat">
+                                    <span class="p-stat-num">30+</span>
+                                    <span class="p-stat-lbl" id="pr-lbl-c">共同協作大型案</span>
+                                </div>
+                                <div class="p-stat">
+                                    <span class="p-stat-num">TOP</span>
+                                    <span class="p-stat-lbl" id="pr-lbl-p">山東淄博技術配合</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- ==============================================
+                         PAGE 04: CONTACT & CONSULTATION FORM
+                         ============================================== -->
+                    <div class="page-container" id="page-contact">
+                        
+                        <article class="tab-panel active" id="contact-panel-1">
+                            <div class="panel-meta">
+                                <span class="slide-num">01</span>
+                                <span class="slide-tag" id="co-tag-1"><i class="fa-solid fa-envelope"></i> 綠色轉型 • 即刻啟動</span>
+                            </div>
+                            <h1 class="panel-title" id="co-title-1">預約諮詢<br>客製技術評估</h1>
+                            
+                            <form id="db-contact-form" class="db-glass-form" onsubmit="handleGridFormSubmit(event)">
+                                <div class="grid-form-row">
+                                    <input type="text" id="g-name" required placeholder="您的姓名 *">
+                                    <input type="text" id="g-company" required placeholder="公司名稱 *">
+                                </div>
+                                <div class="grid-form-row">
+                                    <input type="email" id="g-email" required placeholder="電子郵件 *">
+                                    <input type="tel" id="g-phone" required placeholder="聯絡電話 *">
+                                </div>
+                                <div class="grid-form-row col-span-all">
+                                    <select id="g-service" required>
+                                        <option value="" disabled selected>請選擇您需要的服務 *</option>
+                                        <option value="vocs">VOCs 廢氣治理與微波設備諮詢</option>
+                                        <option value="automation">PLC / SCADA 自動控制與系統整合</option>
+                                        <option value="lighting">智慧 LED 節能照明規劃</option>
+                                        <option value="engineering">廠務機電配管配電動力安裝</option>
+                                        <option value="china">兩岸專案協力合作 (保藍配合)</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="panel-btn primary form-submit-btn" id="g-submit-btn">送出諮詢申請 <i class="fa-solid fa-paper-plane"></i></button>
+                                <div class="form-status-msg" id="g-status-msg"></div>
+                            </form>
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Big Picture Container (Dynamic 3D view with Floating Parallax Badges) -->
+                <div class="db-visual-area">
+                    <div class="reactor-glow-bg"></div>
+                    <img src="microwave_reactor.png" alt="3D Microwave Reactor" class="reactor-img" id="reactor-visual-img">
+                    
+                    <!-- Absolute Visual Badges (Dynamic texts shifting with page context) -->
+                    <div class="visual-badge b-1">
+                        <span class="b-dot"></span>
+                        <span class="b-text" id="v-badge-1">微波蓄熱專利</span>
+                    </div>
+                    <div class="visual-badge b-2">
+                        <span class="b-dot"></span>
+                        <span class="b-text" id="v-badge-2">省電 35%</span>
+                    </div>
+                    <div class="visual-badge b-3">
+                        <span class="b-dot"></span>
+                        <span class="b-text" id="v-badge-3">保藍環保配合</span>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Right Contacts Sidebar -->
+            <aside class="sidebar-right">
+                <button class="side-lang-btn" id="lang-switch-btn" aria-label="Switch Language">EN</button>
+                <div class="vertical-divider"></div>
+                <div class="side-socials">
+                    <a href="#" class="social-link" title="WeChat"><i class="fa-brands fa-weixin"></i></a>
+                    <a href="#" class="social-link" title="Line"><i class="fa-solid fa-comment-sms"></i></a>
+                    <a href="#" class="social-link" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </aside>
+
+        </main>
+
+        <!-- 3. Bottom Dynamic Sub-Tabs & Indices Row (Matches exact reference - Subcategories per main page) -->
+        <footer class="db-footer">
+            
+            <!-- Active Slide Index indicator -->
+            <div class="db-footer-indicator">
+                <span class="footer-active-num" id="footer-active-num">01</span>
+                <span class="footer-divider">/</span>
+                <span class="footer-total-num" id="footer-total-num">02</span>
+                
+                <div class="indicator-arrows">
+                    <button class="arrow-btn" onclick="slidePreviousSubTab()" aria-label="Previous Section"><i class="fa-solid fa-chevron-up"></i></button>
+                    <button class="arrow-btn" onclick="slideNextSubTab()" aria-label="Next Section"><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
+            </div>
+            
+            <!-- Dynamic Bottom Tab Cards (Changes completely based on active Top Header page!) -->
+            <div class="db-footer-tabs" id="db-dynamic-tabs-container">
+                <!-- Bottom tabs will be injected dynamically via JS based on the active main page -->
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ==============================================
+         LEFT SIDEBAR INTERACTIVE MODALS & SLIDE-OUTS
+         ============================================== -->
+    
+    <!-- Tool 1: Tech Spec Search Slide-out -->
+    <div class="left-modal-overlay" id="modal-spec" onclick="closeLeftModal(event)">
+        <div class="left-modal-content glassmorphism-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-file-invoice"></i> 工程設備規格快速檢索</h3>
+                <button class="close-modal-btn" onclick="closeAllLeftModals()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>請輸入或選取欲查詢的工業環境工程設備技術規格與專利證號：</p>
+                <div class="modal-search-box">
+                    <input type="text" placeholder="輸入關鍵字，例如：微波、蓄熱、防回火" id="modal-search-input" oninput="filterSpecs()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="spec-results-list" id="spec-list">
+                    <div class="spec-item">
+                        <h4>蓄熱式微波裂解塔 — XIRI-M100</h4>
+                        <p>專利證號：I6543210。廢氣風量：50-1000 CMM，能耗較傳統 RTO 節省 35%，VOCs 去除率 99.9%。</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>均流防回火閥箱 — XIRI-V50</h4>
+                        <p>專利證號：I7865432。配備物理氣流均勻裝置與精密防爆阻火器，安全防回火回燃係數提升 200%。</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>SCADA 智慧自動化控制盤</h4>
+                        <p>基於 PLC 及工業物聯網架構，支援 24 小時動態感測監控與雲端安全報警系統。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool 2: Direct Telephony Modal -->
+    <div class="left-modal-overlay" id="modal-call" onclick="closeLeftModal(event)">
+        <div class="left-modal-content glassmorphism-card text-center-modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-phone-volume"></i> 兩岸廠區快速電話聯絡</h3>
+                <button class="close-modal-btn" onclick="closeAllLeftModals()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="phone-card">
+                    <span class="region-lbl">台灣總部廠區</span>
+                    <h4>苗栗頭份建國廠</h4>
+                    <p class="phone-num"><i class="fa-solid fa-phone"></i> +886-37-688000</p>
+                    <p class="working-time">服務時間：週一至週五 08:30 - 17:30</p>
+                    <a href="tel:+88637688000" class="call-action-btn">撥打電話</a>
+                </div>
+                <div class="phone-card">
+                    <span class="region-lbl">中國工程戰略協作點</span>
+                    <h4>山東保藍山東淄博聯絡點</h4>
+                    <p class="phone-num"><i class="fa-solid fa-phone-flip"></i> 0533-XXXXXXX</p>
+                    <p class="working-time">配合山東保藍環保有限公司執行大氣防治專案</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool 3: Map & Plant Address Modal -->
+    <div class="left-modal-overlay" id="modal-map" onclick="closeLeftModal(event)">
+        <div class="left-modal-content glassmorphism-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-map-location-dot"></i> 銧碩科技兩岸廠務地圖</h3>
+                <button class="close-modal-btn" onclick="closeAllLeftModals()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="address-row">
+                    <div class="addr-box">
+                        <span class="badge green">台灣總部</span>
+                        <h4>苗栗縣頭份市建國路二段176號</h4>
+                        <p>統一編號：54264936 • 特約甲級電器與消防安全工程施工資質。</p>
+                        <a href="https://maps.google.com/?q=苗栗縣頭份市建國路二段176號" target="_blank" class="map-link-btn">開啟 Google Map <i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                    <div class="addr-box">
+                        <span class="badge blue">山東戰合夥伴</span>
+                        <h4>山東保藍環保有限公司</h4>
+                        <p>山東省淄博市張店區山東保藍大樓 • 國家級專精特新小巨人，共同建置大型除塵脫白與超低排放項目。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool 4: Online Interactive Assistant Modal (Sleek Chatbot Overlay) -->
+    <div class="left-modal-overlay" id="modal-chat" onclick="closeLeftModal(event)">
+        <div class="left-modal-content glassmorphism-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-comments"></i> 銧碩智慧綠能小幫手</h3>
+                <button class="close-modal-btn" onclick="closeAllLeftModals()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body chatbot-body">
+                <div class="chat-messages" id="chat-box">
+                    <div class="msg bot">
+                        <div class="msg-bubble">
+                            您好！我是銧碩科技的智能助手。請問您對哪一項綠色科技或兩岸（保藍集團）合作項目有興趣？
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input-field" placeholder="輸入您的提問，例如：微波裂解塔、節能..." onkeydown="handleChatKeyDown(event)">
+                    <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>
