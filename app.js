@@ -53,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // B. Launch Default Landing Page
     navigateToPage('page-about', 1);
+    
+    // C. Initialize Swipe Gestures on Mobile
+    initSwipeGestures();
 });
 
 // 2. High-Level Page Routing Switcher
@@ -72,7 +75,7 @@ window.navigateToPage = function(pageId, pageNum) {
     document.querySelectorAll('.db-menu .menu-link').forEach(link => {
         link.classList.remove('active');
     });
-    const activeMenuBtn = document.getElementById(`nav-page-${pageNum}`);
+    const activeMenuBtn = document.getElementById(`nav-btn-page-${pageNum}`);
     if (activeMenuBtn) {
         activeMenuBtn.classList.add('active');
     }
@@ -157,6 +160,7 @@ window.switchSubTab = function(panelId, idx) {
         cardsContainer.querySelectorAll('.footer-tab-card').forEach((card, cIdx) => {
             if (cIdx === idx) {
                 card.classList.add('active');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             } else {
                 card.classList.remove('active');
             }
@@ -781,6 +785,44 @@ function applyTranslations(lang) {
             bubble.innerHTML = isEn ? 
                 'Hello! I am XIRI\'s intelligent assistant. Which green tech or Cross-Strait (Baolan Group) collaboration project are you interested in?' : 
                 '您好！我是銧碩科技的智能助手。請問您對哪一項綠色科技或兩岸（保藍集團）合作項目有興趣？';
+        }
+    }
+}
+
+// 9. Mobile Touch-Swipe Gestures for Subtab Navigation
+function initSwipeGestures() {
+    const contentArea = document.querySelector('.content-slider-wrapper');
+    if (!contentArea) return;
+    
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    
+    contentArea.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    contentArea.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        
+        // Ensure horizontal swipe is dominant and significant
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                // Swipe right -> slide to previous sub-tab
+                window.slidePreviousSubTab();
+            } else {
+                // Swipe left -> slide to next sub-tab
+                window.slideNextSubTab();
+            }
         }
     }
 }

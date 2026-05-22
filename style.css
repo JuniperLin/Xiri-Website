@@ -132,6 +132,9 @@ html, body {
     position: relative;
     transition: var(--transition-quick);
 }
+.nav-icon {
+    display: none; /* Hide icons on desktop layout */
+}
 .menu-link:last-child {
     border-right: 1px solid var(--border-grid);
 }
@@ -1124,100 +1127,400 @@ html, body {
 }
 
 @media (max-width: 1024px) {
-    /* Enable full scrollable vertical experience for mobile/tablet to ensure 100% usability */
+    /* 1. Viewport Lock to preserve premium App-like experience */
     html, body {
-        overflow: auto;
-        height: auto;
-    }
-    .dashboard-wrapper {
-        height: auto;
-        border: none;
+        overflow: hidden !important;
+        height: 100% !important;
+        position: relative;
     }
     
-    .db-header {
-        height: auto;
-        padding: 1.2rem;
+    .dashboard-wrapper {
+        height: 100vh !important;
+        height: 100dvh !important;
+        border: none !important;
+        display: flex;
         flex-direction: column;
-        gap: 1.2rem;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    /* 2. Top Header Bar - Compact & Safe Area Padding */
+    .db-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(60px + env(safe-area-inset-top, 0px)) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: env(safe-area-inset-top, 0px) 1rem 0 !important;
+        background-color: var(--bg-pure-white);
+        border-bottom: 1px solid var(--border-grid);
+        z-index: 95;
     }
     .db-brand {
-        align-self: flex-start;
+        gap: 0.5rem !important;
     }
-    .db-menu {
-        display: none; /* Hide header menu, navigation is card-based on mobile */
+    .brand-logo {
+        width: 34px !important;
+        height: 34px !important;
+        border-radius: 8px !important;
+        font-size: 0.95rem !important;
+    }
+    .brand-title {
+        font-size: 1.05rem !important;
+        letter-spacing: 0px !important;
+    }
+    .brand-sub {
+        font-size: 0.55rem !important;
+        letter-spacing: 1px !important;
     }
     .db-meta {
-        width: 100%;
-        justify-content: space-between;
-        border-top: 1px solid var(--border-grid);
-        padding-top: 1rem;
-    }
-    .email-meta {
-        display: none;
+        display: none !important; /* Hide desktop contact metadata to save space */
     }
     
-    .db-body {
-        flex-direction: column;
-        height: auto;
+    /* 3. Left Utility Sidebar - Transformed into a Sleek Top Horizontal Dock */
+    .sidebar-left {
+        position: fixed;
+        top: calc(60px + env(safe-area-inset-top, 0px)); /* Sits right below safe-area Header */
+        left: 0;
+        width: 100%;
+        height: 50px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        padding: 0 1rem !important;
+        background-color: var(--bg-pure-white);
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-grid) !important;
+        z-index: 80;
+        gap: 0 !important;
     }
-    .sidebar-left, .sidebar-right {
-        display: none; /* Remove structural sidebars, merge interactions */
+    .side-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.95rem !important;
+        border: 1px solid var(--border-grid) !important;
+    }
+    
+    /* 4. Right Sidebar - Reposition Language Switcher & Hide others */
+    .sidebar-right {
+        position: fixed;
+        top: calc(12px + env(safe-area-inset-top, 0px));
+        right: 1rem;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        border: none !important;
+        z-index: 100;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .side-lang-btn {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 0.75rem !important;
+        background-color: var(--bg-light-white) !important;
+        border: 1px solid var(--navy-primary) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    }
+    .vertical-divider, .side-socials {
+        display: none !important; /* Hide other side items on mobile */
+    }
+    
+    /* 5. Center Workspace Grid - Re-styled as vertical stack */
+    .db-body {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        overflow: hidden !important;
     }
     
     .db-content-area {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .content-slider-wrapper {
-        padding: 2rem 1.5rem;
-        border-right: none;
-        border-bottom: 1px solid var(--border-grid);
-        height: auto;
-    }
-    
-    .page-container {
-        display: flex !important; /* Show all page containers sequentially on mobile */
-        flex-direction: column;
-        height: auto;
-    }
-
-    .tab-panel {
-        display: flex !important; /* On mobile, show all sections vertically for natural reading flow */
-        margin-bottom: 4rem;
-        border-bottom: 1px solid var(--border-grid);
-        padding-bottom: 4rem;
-        height: auto;
-    }
-    .tab-panel:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-        padding-bottom: 0;
+        margin-top: calc(110px + env(safe-area-inset-top, 0px)) !important; /* Header (60px) + Utility Dock (50px) + Safe Area */
+        margin-bottom: calc(135px + env(safe-area-inset-bottom, 0px)) !important; /* Footer (75px) + Main Menu (60px) + Safe Area */
+        height: calc(100vh - 245px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+        height: calc(100dvh - 245px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        grid-template-columns: none !important; /* Cancel grid columns */
     }
     
-    .panel-title {
-        font-size: 2.5rem;
-    }
-    
+    /* Top half: 3D Reactor visual */
     .db-visual-area {
-        height: 300px;
-        order: -1; /* Display reactor image at the top of content */
+        height: 160px !important;
+        min-height: 140px !important;
+        padding: 0.5rem !important;
+        background-color: var(--bg-light-white);
         border-bottom: 1px solid var(--border-grid);
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+        order: -1 !important; /* Always on top of texts */
+    }
+    .reactor-glow-bg {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    .reactor-img {
+        max-height: 95% !important;
+        max-width: 95% !important;
     }
     .visual-badge {
-        display: none; /* Hide floating badges to save mobile space */
+        display: none !important; /* Hide badges on mobile to keep clean focus */
     }
     
+    /* Bottom half: Text slider content */
+    .content-slider-wrapper {
+        flex: 1 !important;
+        padding: 1.5rem 1.25rem 2.5rem !important; /* Extra bottom padding for readability */
+        overflow-y: auto !important;
+        height: auto !important;
+        border-right: none !important;
+        display: block !important;
+    }
+    
+    /* 6. Text Panel responsiveness */
+    .tab-panel {
+        display: none;
+        height: auto !important;
+        animation: slideInText 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .tab-panel.active {
+        display: flex !important;
+    }
+    .panel-meta {
+        margin-bottom: 1rem !important;
+        gap: 0.85rem !important;
+    }
+    .slide-num {
+        font-size: 1.2rem !important;
+    }
+    .slide-tag {
+        font-size: 0.78rem !important;
+    }
+    .panel-title {
+        font-size: 2rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 1rem !important;
+        letter-spacing: -0.5px !important;
+    }
+    .panel-desc {
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+        max-width: 100% !important;
+    }
+    .panel-btn {
+        width: 100% !important; /* Full width outline button on mobile for absolute touch target */
+        justify-content: center !important;
+        padding: 0.9rem 1.8rem !important;
+        font-size: 0.98rem !important;
+        border-width: 2px !important; /* Slightly thinner border for elegant mobile look */
+    }
+    .panel-stats {
+        margin-top: 2rem !important;
+        padding-top: 1.25rem !important;
+        gap: 2rem !important;
+        max-width: 100% !important;
+    }
+    .p-stat-num {
+        font-size: 1.8rem !important;
+    }
+    .p-stat-lbl {
+        font-size: 0.72rem !important;
+    }
+    
+    /* Form input single-column layout */
+    .db-glass-form {
+        max-width: 100% !important;
+        gap: 0.9rem !important;
+    }
+    .grid-form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0.9rem !important;
+    }
+    .db-glass-form input, .db-glass-form select {
+        padding: 0.85rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+    .form-submit-btn {
+        width: 100% !important;
+    }
+    
+    /* 7. Bottom Main Menu - Transformed into Fixed Bottom Navigation Dock & Safe Area Padding */
+    .db-menu {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+        background-color: var(--bg-pure-white) !important;
+        border-top: 1px solid var(--border-grid) !important;
+        display: flex !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        z-index: 90 !important;
+        box-shadow: 0 -4px 15px rgba(15, 23, 42, 0.04) !important;
+        padding: 0 0 env(safe-area-inset-bottom, 0px) !important;
+    }
+    .menu-link {
+        border: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        flex: 1 !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0 !important;
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        color: var(--navy-secondary) !important;
+        gap: 0.15rem !important;
+        transition: var(--transition-quick) !important;
+        background-color: transparent !important;
+    }
+    .menu-link:last-child {
+        border-right: none !important;
+    }
+    .menu-link::after {
+        display: none !important;
+    }
+    .menu-link:hover {
+        background-color: transparent !important;
+        color: var(--navy-secondary) !important;
+    }
+    .menu-link.active {
+        color: var(--green-eco) !important;
+        background-color: transparent !important;
+    }
+    .menu-link.active:hover {
+        color: var(--green-eco) !important;
+    }
+    .nav-icon {
+        display: block !important;
+        font-size: 1.15rem !important;
+        margin-bottom: 2px !important;
+        transition: var(--transition-quick) !important;
+    }
+    
+    /* 8. Bottom Dynamic Sub-tabs ribbon - Sits right above Bottom Main Menu */
     .db-footer {
-        display: none; /* Hide interactive footer row on mobile */
+        position: fixed !important;
+        bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important; /* Anchored right above bottom nav safe-area */
+        left: 0 !important;
+        width: 100% !important;
+        height: 75px !important;
+        display: flex !important;
+        border-top: 1px solid var(--border-grid) !important;
+        background-color: var(--bg-pure-white) !important;
+        z-index: 85 !important;
+    }
+    .db-footer-indicator {
+        width: 65px !important; /* Ultra compact slide counter */
+        padding: 0 0.5rem !important;
+        border-right: 1px solid var(--border-grid) !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 0.1rem !important;
+        background-color: var(--bg-light-white) !important;
+    }
+    .footer-active-num {
+        font-size: 1.3rem !important;
+    }
+    .footer-divider {
+        font-size: 0.75rem !important;
+        margin: 0 !important;
+    }
+    .footer-total-num {
+        font-size: 0.75rem !important;
+        margin-top: 0 !important;
+    }
+    .indicator-arrows {
+        display: none !important; /* Hide arrows on mobile to maximize touch width */
     }
     
-    /* MODALS adapt to full screen on mobile */
+    .db-footer-tabs {
+        flex: 1 !important;
+        overflow-x: auto !important; /* Enable smooth horizontal swiping */
+        white-space: nowrap !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        -ms-overflow-style: none !important;  /* IE/Edge */
+        scrollbar-width: none !important;  /* Firefox */
+    }
+    .db-footer-tabs::-webkit-scrollbar {
+        display: none !important; /* Hide scrollbars for Chrome/Safari/Webkit */
+    }
+    .footer-tab-card {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 130px !important;
+        max-width: 170px !important;
+        padding: 0.5rem 0.85rem !important;
+        border-right: 1px solid var(--border-grid) !important;
+        height: 100% !important;
+        flex: 0 0 auto !important;
+        scroll-snap-align: start !important;
+    }
+    .tab-card-index {
+        margin-bottom: 0 !important;
+        margin-right: 0.4rem !important;
+        font-size: 0.85rem !important;
+    }
+    .tab-card-content {
+        gap: 0 !important;
+    }
+    .tab-card-title {
+        font-size: 0.88rem !important;
+    }
+    .tab-card-desc, .tab-card-arrow {
+        display: none !important; /* Hide details to maximize space in single-row tab */
+    }
+    
+    /* 9. Drawer Modals adapted to 100% screen & Larger touch target */
     .left-modal-content {
         width: 100% !important;
         left: -100% !important;
-        padding: 2rem 1.5rem;
+        padding: calc(1.8rem + env(safe-area-inset-top, 0px)) 1.25rem calc(1.8rem + env(safe-area-inset-bottom, 0px)) !important;
     }
     .left-modal-overlay.active .left-modal-content {
         left: 0 !important;
+    }
+    .modal-header {
+        margin-bottom: 1.5rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    .modal-header h3 {
+        font-size: 1.15rem !important;
+    }
+    .close-modal-btn {
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: -10px !important;
+        margin-right: -10px !important;
+    }
+    
+    /* 10. Height limit protection (Keyboard popup, compact screens) */
+    @media (max-height: 680px) {
+        .db-visual-area {
+            display: none !important; /* Hide 3D reactor visual on short screens or keyboard active */
+        }
     }
 }
